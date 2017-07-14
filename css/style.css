@@ -1,0 +1,79 @@
+/*
+Plugin Name: Dot Embed
+Plugin URI: http://dot.vu
+Description: Embed Dot pages and apps using this code: <code>[dotembed url="" title="" dotext="" dotid="" pageext="" pageid="" width="" height="" ratio="" loading="" loadingcolor=""]</code>
+Version: 1.0
+Author: Pedro Figueiredo
+Author URI: http://dot.vu
+*/
+
+
+
+.dotembed {}
+
+.dotembed-loading {
+  height: 80px;
+}
+
+.dotembed-loading .spinner {
+  width: 80px;
+  display: block;
+  margin: 60px auto;
+  text-align: center;
+}
+
+.dotembed-iframe-container {
+  margin: 0 auto;
+  position: relative;
+}
+.dotembed-iframe-container iframe {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.62s ease-in 0.3s;
+}
+.dotembed-iframe-container.active iframe {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.62s ease-in 0s, visibility 0s linear 0.62s;
+}
+
+/*******************************************************************
+ *
+ * Loading Animation
+ *
+ *******************************************************************/
+
+.spinner > div {
+  width: 18px;
+  height: 18px;
+  background-color: #595959;
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.spinner .bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+.spinner .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% { 
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  } 40% { 
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+  }
+}
